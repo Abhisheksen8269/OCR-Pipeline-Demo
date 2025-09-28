@@ -3,7 +3,9 @@ Project Submission: Backend Interview Assignment
 🎯 Executive Summary
 This project delivers a robust, multi-step pipeline designed to accurately extract and classify financial data (Total, Paid, Due, Discount) from various medical documents (images via OCR and raw text).
 Built on FastAPI, the architecture prioritizes reliability, auditability, and speed. The system processes raw input through normalization and contextual classification, delivering high-confidence, structured JSON suitable for immediate integration or financial analysis. The associated responsive front-end demonstrates the entire pipeline flow visually.
+
 🛠️ 1. Project Architecture and Setup
+
 1.1 Architecture Overview
 The system implements a classic 4-Stage ETL (Extract, Transform, Load) Pipeline pattern, ensuring strong data integrity from input to final output.
 Stage
@@ -26,6 +28,7 @@ Classified Amounts
 Structures all data, calculates derived fields (e.g., calculated Due amount), and includes source provenance.
 FastAPI Pydantic Models
 Final Structured JSON
+
 
 1.2 Setup Instructions
 To replicate and run the application locally, you must clone the repository and install the dependencies.
