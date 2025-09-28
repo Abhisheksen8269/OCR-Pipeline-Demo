@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🧾 AI Document Processor Pipeline</title>
+<link href="https://www.google.com/search?q=https://fonts.googleapis.com/css2%3Ffamily%3DInter:wght%40300%3B400%3B600%3B700%26display%3Dswap" rel="stylesheet">
+<script src="https://www.google.com/search?q=https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body class="p-4 lg:p-8">
+<div id="loading-overlay" class="fixed inset-0 bg-gray-900 bg-opacity-70 z-50 flex items-center justify-center hidden">
+<div class="bg-slate-800 p-6 rounded-xl shadow-2xl flex items-center">
+<svg class="animate-spin h-6 w-6 mr-3 text-violet-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+<path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+</svg>
+<span class="text-white font-semibold">Processing Document...</span>
+</div>
+</div>
+
+<div class="container">
+    <header class="main-header">
+        <h1>AI Document Processor</h1>
+        <p>End-to-End Financial Amount Extraction Pipeline</p>
+    </header>
+
+    <main class="main-content">
+        <!-- INPUT CARD (Left Column) -->
+        <div class="card input-card">
+            <h2>Input Document</h2>
+            <form id="extraction-form" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="file">1. Upload Medical Bill Image</label>
+                    <input type="file" name="file" id="file" accept="image/*">
+                </div>
+                <div class="separator">— OR —</div>
+                <div class="form-group">
+                    <label for="text">2. Paste OCR/Raw Text (Optional)</label>
+                    <textarea name="text" id="text" placeholder="e.g., Total: 1500 Paid: 1000 Due: 500 Discount: 10%"></textarea>
+                </div>
+                <button type="submit" id="submit-button">Run Full Extraction Pipeline</button>
+            </form>
+        </div>
+        
+        <!-- RESULTS CARD (Right Column) -->
+        <div class="card results-card">
+            <h2>Pipeline Results</h2>
+
+            <div id="initial-message" class="message-box initial-box">
+                Submit a document to view the step-by-step extraction process.
+            </div>
+
+            <div id="error-message" class="message-box error-box hidden"></div>
+            
+            <!-- Step 4 Summary (Visual summary of final amounts) -->
+            <div id="final-summary-list" class="mt-4 space-y-2">
+                <!-- Final structured amounts render here -->
+            </div>
+
+
+            <div id="results-panel" class="mt-6 space-y-3 hidden">
+                <h3 class="text-lg font-bold text-gray-700 mt-4 border-t pt-4">Detailed Process Steps</h3>
+
+                <!-- Step 1 Card -->
+                <div class="step-card">
+                    <div class="step-header" data-step="1">
+                        <span class="step-title step-1-color">
+                            <span class="step-indicator step-1-bg">1</span>
+                            Step 1 - OCR/Text Extraction
+                        </span>
+                        <span class="confidence-display">Confidence: <span id="conf-1" class="conf-badge">--</span></span>
+                    </div>
+                    <div id="step-1-content" class="step-content">
+                        <h3>Raw Tokens Found (pre-cleaning):</h3>
+                        <pre id="result-1"></pre>
+                    </div>
+                </div>
+
+                <!-- Step 2 Card -->
+                <div class="step-card">
+                    <div class="step-header" data-step="2">
+                         <span class="step-title step-2-color">
+                            <span class="step-indicator step-2-bg">2</span>
+                            Step 2 - Normalization & Cleaning
+                        </span>
+                        <span class="confidence-display">Confidence: <span id="conf-2" class="conf-badge">--</span></span>
+                    </div>
+                    <div id="step-2-content" class="step-content">
+                        <h3>Normalized Money Amounts:</h3>
+                        <pre id="result-2"></pre>
+                    </div>
+                </div>
+
+                <!-- Step 3 Card -->
+                <div class="step-card">
+                    <div class="step-header" data-step="3">
+                         <span class="step-title step-3-color">
+                            <span class="step-indicator step-3-bg">3</span>
+                            Step 3 - Classification by Context
+                        </span>
+                        <span class="confidence-display">Confidence: <span id="conf-3" class="conf-badge">--</span></span>
+                    </div>
+                    <div id="step-3-content" class="step-content">
+                        <h3>Classified Amounts:</h3>
+                        <pre id="result-3"></pre>
+                    </div>
+                </div>
+
+                <!-- Step 4 Full JSON (For provenance and deep inspection) -->
+                <div class="step-card">
+                    <div class="step-header" data-step="4-full">
+                        <span class="step-title step-4-color">
+                            <span class="step-indicator step-4-bg">4</span>
+                            Full Structured JSON Output
+                        </span>
+                        <span class="text-gray-400">Currency: <span id="currency-4" class="font-bold">--</span></span>
+                    </div>
+                    <div id="step-4-full-content" class="step-content active">
+                        <h3>Complete Final Structured JSON:</h3>
+                        <pre id="result-4-full"></pre>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+</div>
+
+<script src="/static/app.js"></script>
+
+</body>
+</html>
