@@ -65,7 +65,8 @@ Test 2: Full Pipeline with Image (OCR) Input
 curl -X POST "<NGROK_URL>/extract-amounts" \
 -H "Accept: application/json" \
 -F "file=@img7.png;type=image/png"
-<img width="1633" height="946" alt="app_image_test" src="https://github.com/user-attachments/assets/8c9697b5-aca1-4e99-8aa4-c1898d142a24" />
+<img width="1909" height="1016" alt="Screenshot from 2025-09-28 08-27-36" src="https://github.com/user-attachments/assets/776c0cd9-b519-4354-8387-e8515855037c" />
+
 
 
 
