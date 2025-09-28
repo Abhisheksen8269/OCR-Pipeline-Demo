@@ -59,6 +59,9 @@ Test 1: Full Pipeline with Text Input
 curl -X POST "<NGROK_URL>/extract-amounts" \
 -H "Content-Type: application/x-www-form-urlencoded" \
 -d "text=Total: 1500 Paid: 1000 Due: 500 Discount: 10%"
+<img width="1763" height="881" alt="image" src="https://github.com/user-attachments/assets/cb1eb94f-e665-4523-b5a2-fac846835ce6" />
+
+
 Test 2: Full Pipeline with Image (OCR) Input
 (Tests Image Handling, EasyOCR Integration, and the full pipeline)
 # This assumes you have the test image ('img7.png') in your current directory.
