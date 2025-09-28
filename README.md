@@ -37,16 +37,20 @@ git clone [https://github.com/Abhisheksen8269/OCR-Pipeline-Demo.git](https://git
 cd OCR-Pipeline-Demo
 
 
-Create and Activate Virtual Environment
+Create and Activate Virtual Environment  :: 
+
 python3 -m venv final_env
+
 source final_env/bin/activate
 
 
-Install Dependencies
+Install Dependencies  ::
+
 pip install -r requirements.txt
 
 
-Run the Server
+Run the Server  ::
+
 python main.py
 
 The application is accessible locally at http://0.0.0.0:8000.
@@ -57,12 +61,16 @@ The application is accessible locally at http://0.0.0.0:8000.
 💻 2. API Usage Examples (cURL)
 These cURL commands demonstrate how to interact with the primary endpoint (/extract-amounts) to test both text input and OCR functionality.
 (Replace <NGROK_URL> with your live public link, e.g., https://bereft-kizzie-unawardable.ngrok-free.dev)
+
+
+
 Test 1: Full Pipeline with Text Input
 (Tests Extraction, Normalization, Classification)
 curl -X POST "<NGROK_URL>/extract-amounts" \
 -H "Content-Type: application/x-www-form-urlencoded" \
 -d "text=Total: 1500 Paid: 1000 Due: 500 Discount: 10%"
 <img width="1763" height="881" alt="image" src="https://github.com/user-attachments/assets/cb1eb94f-e665-4523-b5a2-fac846835ce6" />
+
 
 
 Test 2: Full Pipeline with Image (OCR) Input
