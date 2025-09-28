@@ -47,6 +47,10 @@ Run the Server
 python main.py
 
 The application is accessible locally at http://0.0.0.0:8000.
+<img width="1909" height="1016" alt="Screenshot from 2025-09-28 08-27-30" src="https://github.com/user-attachments/assets/32e157d9-9334-4253-94d3-689f18e801a3" />
+
+
+
 💻 2. API Usage Examples (cURL)
 These cURL commands demonstrate how to interact with the primary endpoint (/extract-amounts) to test both text input and OCR functionality.
 (Replace <NGROK_URL> with your live public link, e.g., https://bereft-kizzie-unawardable.ngrok-free.dev)
